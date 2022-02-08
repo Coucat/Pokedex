@@ -1,2 +1,2 @@
 # Pokedex
-this is a demo of a pokedex proyect
+probando branch de ticket

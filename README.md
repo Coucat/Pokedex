@@ -1,8 +1,6 @@
-# Pokedex 
 <div align="center">
-    <a href='https://github.com/Coucat/Pokedex'>
-        <img src="https://res.cloudinary.com/dvxtbmch0/image/upload/v1644632968/masterball_h4per9.png" alt="Logo" width="100" height="100" />
-    </a>
+    <h1>POKEDEX</h1>
+        <img src="https://res.cloudinary.com/dvxtbmch0/image/upload/v1644636765/pokecoin_blixqs.png" alt="Logo" width="150" height="150" />
 </div>
 <details>
     <summary>Table of Contents</summary>
@@ -17,9 +15,10 @@
 </details>
 <br>
 
-<div id="about" ></div>
+<div id="about" >
+    <h2 align="justify"> Here's a Pokedex powered by PokeAPI build with React.js, that provides information, stats, movements, evolution chain and fuctions like search or suffle to learn about a random Pokémon.</h2>
+</div>
 
-## Here's a Pokedex powered by PokeAPI build with React.js, that provides information, stats, movements, evolution chain and fuctions like search or suffle to learn about a random Pokémon.
 <br>
 <a align="center"> <img src="https://res.cloudinary.com/dvxtbmch0/image/upload/v1644551448/Captura_de_pantalla_de_2022-02-10_21-50-18_va8kpv.png"  width="1000" /> </a>
 

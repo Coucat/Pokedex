@@ -1,6 +1,6 @@
 <div align="center">
     <h1>POKEDEX</h1>
-        <img src="https://res.cloudinary.com/dvxtbmch0/image/upload/v1644636765/pokecoin_blixqs.png" alt="Logo" width="150" height="150" />
+        <img src="https://res.cloudinary.com/dvxtbmch0/image/upload/v1644636956/pokebola_s8c3yd.png" alt="Logo" width="150" height="150" />
 </div>
 <details>
     <summary>Table of Contents</summary>

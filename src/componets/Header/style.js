@@ -43,7 +43,7 @@ const growBar = keyframes`
     }
 `;
 export const Section = styled.div`
-    width: 100px;
+    width: 110px;
     height: 70px;
     display: flex;
     position: relative;
@@ -53,11 +53,20 @@ export const Section = styled.div`
     cursor: pointer;
     font-family: 'Rubik', sans-serif;
     font-weight: 900;
+    border-radius: 5px;
     margin: 0 10px;
-    &:hover ${Line}{
-        animation-name: ${growBar};
+    &:hover{
+        color: red;
+        background: #eeeeee;
+        ${Line}{
+            animation-name: ${growBar};
         animation-fill-mode: both;
         animation-duration: 2s;
+        background-color: red;
+        }
+        ${Icon}{
+            filter: grayscale(0);
+        }
     }
     &.active{
        color: red;
@@ -68,6 +77,9 @@ export const Section = styled.div`
            background-color: red;
            animation: none;
            width: 100%;
+       }
+       &:hover{
+        background: none;
        }
     }
 `;

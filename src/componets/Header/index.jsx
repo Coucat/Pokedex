@@ -3,27 +3,26 @@ import {
   Container,
   Headers,
   Section,
-  Icon,
+  SectionIcon,
   Line,
 } from './style';
-import pokedexIcon from '../../assets/pokeball.png';
 
 function Header() {
   return (
     <Container>
       <Headers>
         <Section className="active">
-          <Icon src={pokedexIcon} />
+          <SectionIcon name="pokeballIcon" />
           Pokedex
           <Line />
         </Section>
         <Section>
-          <Icon src={pokedexIcon} />
+          <SectionIcon name="pokeballIcon" />
           Pokedex
           <Line />
         </Section>
         <Section>
-          <Icon src={pokedexIcon} />
+          <SectionIcon name="pokeballIcon" />
           Pokedex
           <Line />
         </Section>

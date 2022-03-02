@@ -1,10 +1,7 @@
-/* eslint-disable no-console */
-import styled, {
-  keyframes,
-} from 'styled-components';
-import Icon from '../UI/Icon';
+import styled, { keyframes } from 'styled-components';
+import { ReactComponent as PokeballIcon } from '../../assets/pokeball.svg';
 
-export const Container = styled.div`
+export const HeaderContainer = styled.div`
     width: 100%;
     height: 100px;
     display: flex;
@@ -12,7 +9,7 @@ export const Container = styled.div`
     justify-content: center;
     flex-direction: column;
 `;
-export const Headers = styled.div`
+export const HeaderBar = styled.div`
     width: 76%;
     height: 70px;
     background: white;
@@ -26,12 +23,10 @@ export const Headers = styled.div`
     border: 2px solid #EEEE;
     min-width: 350px;
 `;
-export const SectionIcon = styled(Icon)`
-    & svg{
-        & path{
-            fill: #808080;
-        }
-    }
+export const IconPokeball = styled(PokeballIcon)`
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
 `;
 
 export const Line = styled.span`
@@ -47,7 +42,7 @@ const growBar = keyframes`
         width: 100%;
     }
 `;
-export const Section = styled.div`
+export const HeaderSection = styled.div`
     width: 110px;
     height: 70px;
     display: flex;
@@ -69,12 +64,8 @@ export const Section = styled.div`
             animation-duration: .5s;
             background-color: #FF000050;
         }
-        ${SectionIcon}{
-            & svg{
-                & path{
-                    fill: #FF535050;
-                }
-            }
+        ${IconPokeball} path{
+               fill: #FF535050;
         }
     }
     &.active{
@@ -84,12 +75,8 @@ export const Section = styled.div`
            animation: none;
            width: 100%;
        }
-       ${SectionIcon}{
-        & svg{
-                & path{
-                    fill: #FF5350;
-                }
-            }
+       ${IconPokeball} path{
+            fill: #FF5350;
        }
        &:hover{
         background: none;

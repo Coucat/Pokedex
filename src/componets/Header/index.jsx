@@ -1,33 +1,18 @@
 import React from 'react';
+import Section from './section';
 import {
-  Container,
-  Headers,
-  Section,
-  SectionIcon,
-  Line,
-} from './style';
+  HeaderContainer,
+  HeaderBar,
+} from './styles';
 
 function Header() {
   return (
-    <Container>
-      <Headers>
-        <Section className="active">
-          <SectionIcon name="pokeballIcon" />
-          Pokedex
-          <Line />
-        </Section>
-        <Section>
-          <SectionIcon name="pokeballIcon" />
-          Pokedex
-          <Line />
-        </Section>
-        <Section>
-          <SectionIcon name="pokeballIcon" />
-          Pokedex
-          <Line />
-        </Section>
-      </Headers>
-    </Container>
+    <HeaderContainer>
+      <HeaderBar>
+        <Section active="active" />
+        <Section />
+      </HeaderBar>
+    </HeaderContainer>
   );
 }
 

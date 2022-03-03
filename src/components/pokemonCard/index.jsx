@@ -3,17 +3,23 @@ import { Grid } from './styles';
 import PokemonCard from './pokemonCard';
 
 function Pokemons() {
+  const types = [
+    {
+      slot: 1,
+      type: {
+        name: 'fire',
+      },
+    },
+    {
+      slot: 2,
+      type: {
+        name: 'dragon',
+      },
+    },
+  ];
   return (
     <Grid>
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif" />
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/2.gif" />
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/3.gif" />
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif" />
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif" />
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif" />
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif" />
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif" />
-      <PokemonCard name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif" />
+      <PokemonCard className="1" name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif" types={types} />
     </Grid>
   );
 }

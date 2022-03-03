@@ -9,15 +9,18 @@ import {
   TypeContainer,
 } from './styles';
 
-function PokemonCard({ name, image, id }) {
+function PokemonCard({
+  name, image, id, types,
+}) {
   return (
     <CardContainer>
-      <Image src={image} alt="" />
+      <Image src={image} alt={`${name} Image`} />
       <Number>{id}</Number>
       <Name>{name}</Name>
       <TypeContainer>
-        <Type color="grass">Grass</Type>
-        <Type color="poison">Poison</Type>
+        {
+         types.map((item) => <Type type={item.type.name}>{item.type.name}</Type>)
+         }
       </TypeContainer>
     </CardContainer>
   );
@@ -31,5 +34,6 @@ PokemonCard.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
+  types: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 export default PokemonCard;

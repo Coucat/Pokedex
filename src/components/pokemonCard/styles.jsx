@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const typeBackground = {
   grass: '#56be36',
@@ -28,6 +28,17 @@ export const Grid = styled.div`
     margin-top: 20px;
     justify-content: center;
 `;
+const updown = keyframes`
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-8px);   
+    }
+    100%{
+        transform: translateY(0px);   
+    }
+`;
 export const CardContainer = styled.div`
   width: 210px;
   height: 150px;
@@ -44,7 +55,13 @@ export const CardContainer = styled.div`
   font-style: normal;
   font-weight: 800;
   line-height: 22px;
+  &:hover{
+      animation-name: ${updown};
+      animation-duration: .5s;
+      animation-iteration-count: 1;
+  }
 `;
+
 export const Image = styled.img`
     width: 70px;
     height: 60px;
@@ -73,8 +90,9 @@ export const Type = styled.div`
     width: auto;
     height: 25px;
     margin: 0 5px;
-    ${({ color }) => (typeBackground[color] ? `background: ${typeBackground[color]};` : 'background: white;')}
+    ${({ type }) => (typeBackground[type] ? `background: ${typeBackground[type]};` : 'background: white;')}
     padding: 2px 5px;
     border-radius: 4px;
     color: white;
+    text-transform: capitalize;
 `;

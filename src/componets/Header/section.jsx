@@ -6,19 +6,19 @@ import {
   Line,
 } from './styles';
 
-function Section({ active }) {
+function Section({ state }) {
   return (
-    <HeaderSection className={active}>
+    <HeaderSection className={state}>
       <IconPokeball />
       Pokedex
       <Line />
     </HeaderSection>
   );
 }
-Section.defaulProps = {
-  active: 'active',
-};
 Section.propTypes = {
-  active: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+};
+Section.defaulProps = {
+  state: 'active',
 };
 export default Section;

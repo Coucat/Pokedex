@@ -22,11 +22,12 @@ export const HeaderBar = styled.div`
     z-index: 0;
     border: 2px solid #EEEE;
     min-width: 350px;
+
 `;
 export const IconPokeball = styled(PokeballIcon)`
     width: 25px;
     height: 25px;
-    margin-right: 10px;
+    margin: 0 5px 0 13px;
 `;
 
 export const Line = styled.span`
@@ -43,7 +44,6 @@ const growBar = keyframes`
     }
 `;
 export const HeaderSection = styled.div`
-    width: 110px;
     height: 70px;
     display: flex;
     position: relative;
@@ -55,13 +55,12 @@ export const HeaderSection = styled.div`
     font-family: 'Rubik', sans-serif;
     font-weight: 900;
     border-radius: 5px;
-    margin: 0 10px;
     &:hover{
         color: #FF535050;
         ${Line}{
             animation-name: ${growBar};
             animation-fill-mode: both;
-            animation-duration: .5s;
+            animation-duration: .3s;
             background-color: #FF000050;
         }
         ${IconPokeball} path{
@@ -81,5 +80,8 @@ export const HeaderSection = styled.div`
        &:hover{
         background: none;
        }
+    }
+    &:first-child{
+        margin-left: 30px;
     }
 `;

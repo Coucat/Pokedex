@@ -35,6 +35,6 @@ PokemonCard.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  types: PropTypes.arrayOf(PropTypes.object).isRequired,
+  types: PropTypes.instanceOf(Array).isRequired,
 };
 export default PokemonCard;

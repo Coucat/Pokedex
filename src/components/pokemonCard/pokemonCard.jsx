@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import WriteNumber from '../../utils';
 import {
   CardContainer,
   Image,
@@ -13,9 +14,9 @@ function PokemonCard({
   name, image, id, types,
 }) {
   return (
-    <CardContainer>
+    <CardContainer key={id}>
       <Image src={image} alt={`${name} Image`} />
-      <Number>{id}</Number>
+      <Number>{WriteNumber(id)}</Number>
       <Name>{name}</Name>
       <TypeContainer>
         {
@@ -32,8 +33,8 @@ PokemonCard.defaulProps = {
 };
 PokemonCard.propTypes = {
   name: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  types: PropTypes.arrayOf(PropTypes.string).isRequired,
+  types: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 export default PokemonCard;

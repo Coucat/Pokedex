@@ -3,23 +3,68 @@ import { Grid } from './styles';
 import PokemonCard from './pokemonCard';
 
 function Pokemons() {
-  const types = [
+  const data = [
     {
-      slot: 1,
-      type: {
-        name: 'fire',
-      },
+      name: 'Bulbasaur',
+      id: '1',
+      types: [{ type: { name: 'grass' } }, { type: { name: 'poison' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif',
     },
     {
-      slot: 2,
-      type: {
-        name: 'dragon',
-      },
+      name: 'Ivysaur',
+      id: '2',
+      types: [{ type: { name: 'grass' } }, { type: { name: 'poison' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/2.gif',
+    },
+    {
+      name: 'Venusaur',
+      id: '3',
+      types: [{ type: { name: 'grass' } }, { type: { name: 'poison' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/3.gif',
+    },
+    {
+      name: 'Charmander',
+      id: '4',
+      types: [{ type: { name: 'fire' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif',
+    },
+    {
+      name: 'Charmeleon',
+      id: '5',
+      types: [{ type: { name: 'fire' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/5.gif',
+    },
+    {
+      name: 'Charizard',
+      id: '6',
+      types: [{ type: { name: 'fire' } }, { type: { name: 'flying' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/6.gif',
+    },
+    {
+      name: 'Squirtle',
+      id: '7',
+      types: [{ type: { name: 'water' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif',
+    },
+    {
+      name: 'Wartortle',
+      id: '8',
+      types: [{ type: { name: 'water' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/8.gif',
+    },
+    {
+      name: 'Blastoise',
+      id: '9',
+      types: [{ type: { name: 'water' } }],
+      image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/9.gif',
     },
   ];
   return (
     <Grid>
-      <PokemonCard className="1" name="Bulbasaur" id="N°. 001" image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif" types={types} />
+      {
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        data.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
+      }
     </Grid>
   );
 }

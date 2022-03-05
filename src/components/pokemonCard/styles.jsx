@@ -48,12 +48,13 @@ export const CardContainer = styled.div`
   position: relative;
   background-color: white;
   border-radius: 10px;
-  margin: 20px;
+  margin: 20px 10px;
   padding: 0;
   font-family: Roboto;
   font-style: normal;
   font-weight: 800;
   line-height: 22px;
+  box-shadow: 3px 3px 10px 2px rgba(0,0,0,0.2) ;
   &:hover{
       animation-name: ${updown};
       animation-duration: .5s;
@@ -67,6 +68,7 @@ export const Image = styled.img`
     position: absolute;
     top: -30px;
     object-fit: contain;
+    filter:drop-shadow(5px 4px 4px rgba(0, 0, 0, 0.3)); ;
 `;
 export const Number = styled.span` 
     font-size: 15px;

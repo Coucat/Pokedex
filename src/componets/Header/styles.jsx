@@ -22,12 +22,12 @@ export const HeaderBar = styled.div`
     z-index: 0;
     border: 2px solid #EEEE;
     min-width: 350px;
-
+    padding: 0 20px ;
 `;
 export const IconPokeball = styled(PokeballIcon)`
     width: 25px;
     height: 25px;
-    margin: 0 5px 0 13px;
+    margin-right: 5px ;
 `;
 
 export const Line = styled.span`
@@ -55,6 +55,7 @@ export const HeaderSection = styled.div`
     font-family: 'Rubik', sans-serif;
     font-weight: 900;
     border-radius: 5px;
+    padding: 0 10px ;
     &:hover{
         color: #FF535050;
         ${Line}{
@@ -67,7 +68,7 @@ export const HeaderSection = styled.div`
                fill: #FF535050;
         }
     }
-    &.active{
+    ${({ isActive }) => (!isActive ? '&:active' : '')}{
        color: #FF5350;
        ${Line}{
            background-color: #FF5350;
@@ -79,9 +80,6 @@ export const HeaderSection = styled.div`
        }
        &:hover{
         background: none;
-       }
-    }
-    &:first-child{
-        margin-left: 30px;
-    }
+       };
+    };
 `;

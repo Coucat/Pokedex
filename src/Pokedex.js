@@ -4,7 +4,7 @@ import Header from './componets/Header/index';
 function App() {
   return (
     <div className="App">
-      <Header state="active" />
+      <Header name="Pokedex" />
     </div>
   );
 }

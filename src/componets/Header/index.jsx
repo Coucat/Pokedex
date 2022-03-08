@@ -6,20 +6,17 @@ import {
   HeaderBar,
 } from './styles';
 
-function Header({ state }) {
+function Header({ name }) {
   return (
     <HeaderContainer>
       <HeaderBar>
-        <Section state={state} />
-        <Section />
+        <Section isActive={name === 'Pokedex'} section="Pokedex" />
+        <Section isActive={name === 'Example'} section="Example" />
       </HeaderBar>
     </HeaderContainer>
   );
 }
 Header.propTypes = {
-  state: PropTypes.string.isRequired,
-};
-Header.defaulProps = {
-  state: 'active',
+  name: PropTypes.string.isRequired,
 };
 export default Header;

@@ -6,9 +6,9 @@ import {
   Line,
 } from './styles';
 
-function Section({ isActive, section }) {
+function Section({ isActive }) {
   return (
-    <HeaderSection isActive={isActive} section={section}>
+    <HeaderSection isActive={isActive}>
       <IconPokeball />
       Pokedex
       <Line />
@@ -17,6 +17,5 @@ function Section({ isActive, section }) {
 }
 Section.propTypes = {
   isActive: PropTypes.bool.isRequired,
-  section: PropTypes.string.isRequired,
 };
 export default Section;

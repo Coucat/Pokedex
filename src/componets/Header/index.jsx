@@ -10,8 +10,8 @@ function Header({ name }) {
   return (
     <HeaderContainer>
       <HeaderBar>
-        <Section isActive={name === 'Pokedex'} section="Pokedex" />
-        <Section isActive={name === 'Example'} section="Example" />
+        <Section isActive={name === 'Pokedex'} />
+        <Section isActive={name === 'Example'} />
       </HeaderBar>
     </HeaderContainer>
   );

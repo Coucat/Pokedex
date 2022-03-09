@@ -6,7 +6,7 @@ import {
   HeaderBar,
 } from './styles';
 
-function Header({ name }) {
+function Header({ name = 'Pokedex' }) {
   return (
     <HeaderContainer>
       <HeaderBar>

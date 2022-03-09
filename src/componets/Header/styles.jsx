@@ -56,7 +56,7 @@ export const HeaderSection = styled.div`
     font-weight: 900;
     border-radius: 5px;
     padding: 0 10px ;
-    &:hover{
+    ${({ isActive }) => (isActive ? '' : '&:hover')}{
         color: #FF535050;
         ${Line}{
             animation-name: ${growBar};

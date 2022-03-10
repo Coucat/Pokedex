@@ -41,9 +41,8 @@
 * [HTML](https://developer.mozilla.org/es/docs/Web/HTML)
 
 ## Installation
-
 1. Clone the repository 
-    ```sh
+```sh
 git clone https://github.com/Coucat/Pokedex.git
 ```
 2. Change directory

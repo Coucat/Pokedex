@@ -6,31 +6,44 @@ import {
   DropDownListContainer,
   DropDownList,
   ListItem,
-  UpIcon,
-  DownIcon,
 } from './styles';
+import Icon from '../Icon/index';
 
 function Dropdown({
   placeholder,
   options,
   color,
-  Background,
+  background,
+  haveIcon,
+  setFilters,
+  filters,
+  setActiveBtn,
+  setData,
 }) {
-  const dropDrownRef = useRef(null);
+  const dropDownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [itemSelect, setItemSelect] = useState(false);
-
-  const toggling = () => setIsOpen(!isOpen);
+  const [isActive, setActive] = useState(false);
+  const localFilters = { ...filters };
+  const localData = { ...options };
   const close = () => setIsOpen(false);
-  const onOptionClicked = (value) => () => {
-    setSelectedOption(value);
-    setItemSelect(true);
+  const addFilter = (name, value) => {
+    const lower = name.toLowerCase();
+    if (lower === 'ascending') localFilters[lower] = [value];
+    else localFilters[lower] = [...localFilters[lower], value];
+    setFilters({ ...localFilters });
+  };
+  const onOptionClicked = (name, value, index) => () => {
+    addFilter(name, value);
+    setActiveBtn(true);
+    localData[name][index].active = !localData[name][index].active;
+    setActive(localData[name].some((item) => item.active));
+    setData({ ...localData });
     close();
   };
+  const toggling = () => setIsOpen(!isOpen);
   useEffect(() => {
     const pageClickEvent = (e) => {
-      if (dropDrownRef.current !== null && !dropDrownRef.current.contains(e.target)) {
+      if (dropDownRef.current !== null && !dropDownRef.current.contains(e.target)) {
         setIsOpen(!isOpen);
       }
     };
@@ -44,39 +57,60 @@ function Dropdown({
       <DropDownHeader
         onClick={toggling}
         color={color}
-        Background={Background}
-        selected={itemSelect}
+        background={background}
+        selected={isActive}
       >
-        {selectedOption || placeholder }
+        { placeholder }
         {isOpen
-          ? <UpIcon color={color} selected={itemSelect} />
-          : <DownIcon color={color} selected={itemSelect} />}
+          ? <Icon name="UpIcon" fill={color} width="15px" height="15px" margin="0 0 0 5px" selected={isActive} />
+          : <Icon name="DownIcon" fill={color} width="15px" height="15px" margin="0 0  0 5px" selected={isActive} />}
       </DropDownHeader>
       {isOpen && (
-        <DropDownListContainer ref={dropDrownRef}>
-          <DropDownList>
-            {options.map((option) => (
-              <ListItem
-                onClick={onOptionClicked(option)}
-                key={Math.random()}
-              >
-                {option}
-              </ListItem>
-            ))}
-          </DropDownList>
-        </DropDownListContainer>
+      <DropDownListContainer ref={dropDownRef}>
+        <DropDownList>
+          {
+          options[placeholder].map((option, index) => (
+            <ListItem
+              onClick={onOptionClicked(placeholder, option, index)}
+              key={Math.random()}
+              selected={option.active}
+            >
+              {haveIcon ? (
+                <Icon
+                  name={option.name}
+                  width="15px"
+                  height="15px"
+                  margin="0 10px 0 0"
+                  selected={option.active}
+                  fill={color}
+                />
+              ) : ''}
+              {option.name}
+            </ListItem>
+          ))
+        }
+        </DropDownList>
+      </DropDownListContainer>
       )}
     </DropDownContainer>
   );
 }
 Dropdown.defaultProps = {
   color: '#8F9396',
-  Background: true,
+  background: true,
+  haveIcon: false,
+  setActiveBtn: () => {},
+  setData: () => {},
 };
 Dropdown.propTypes = {
   placeholder: PropTypes.string.isRequired,
   options: PropTypes.instanceOf(Array).isRequired,
   color: PropTypes.string,
-  Background: PropTypes.bool,
+  background: PropTypes.bool,
+  haveIcon: PropTypes.bool,
+  setFilters: PropTypes.func.isRequired,
+  filters: PropTypes.objectOf(PropTypes.instanceOf(Array)).isRequired,
+  setActiveBtn: PropTypes.func,
+  setData: PropTypes.func,
 };
 export default Dropdown;

@@ -1,8 +1,4 @@
 import styled from 'styled-components';
-import { ReactComponent as PokeballICon } from '../../assets/pokeball.svg';
-import { ReactComponent as AngleUpIcon } from '../../assets/angleUp.svg';
-import { ReactComponent as AngleDownIcon } from '../../assets/angleDown.svg';
-import { ReactComponent as CloseIcon } from '../../assets/close.svg';
 
 export const NavContainer = styled.div`
   width: 100%;
@@ -53,14 +49,7 @@ export const SearchButton = styled.button`
   justify-content: center;
   cursor: pointer;
   &:hover{
-    box-shadow: 4px 4px 4px rgba(255, 83, 80, 0.5);
-  }
-`;
-export const SearchIcon = styled(PokeballICon)`
-  width: 30px;
-  height: 30px;
-  path{
-    fill: #FFF;
+    box-shadow: 4px 4px 4px rgba(255, 83, 80, .5);
   }
 `;
 export const FilterBar = styled.div`
@@ -80,8 +69,8 @@ export const DropDownContainer = styled.div`
 
 export const DropDownHeader = styled.div`
   padding: 10px;
-  background-color: ${({ Background }) => (!Background ? '' : '#FFF')};
-  box-shadow: ${({ Background }) => (!Background ? '' : '0 2px 3px rgba(0, 0, 0, 0.15)')};
+  background-color: ${({ background }) => (!background ? '' : '#FFF')};
+  box-shadow: ${({ background }) => (!background ? '' : '0 2px 3px rgba(0, 0, 0, 0.15)')};
   font-weight: 900;
   font-size: 14px;
   color: ${({ selected, color }) => (selected ? 'rgba(255,83,80,0.8)' : color || '#8F9396')};
@@ -90,16 +79,22 @@ export const DropDownHeader = styled.div`
   justify-content: center;
   align-items: center;
   margin-right: 10px ;
-  
+  text-transform: capitalize;
 `;
 
 export const DropDownListContainer = styled.div`
   position: absolute;
   z-index: 100;
-  width: 80px;
+  width: 100px;
+  max-height: 150px;
+  overflow: auto;
   margin-top: 2px;
   margin-left: 5px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.19);
+  border: 1px solid #FFF;
+  &::-webkit-scrollbar{
+    width: 0;
+  }
 `;
 
 export const DropDownList = styled.ul`
@@ -118,26 +113,9 @@ export const ListItem = styled.li`
   align-items: center;
   justify-content: left;
   list-style: none;
-  &:hover {
-    color: #000;
-    background-color: lightgray;
-  }
-`;
-
-export const UpIcon = styled(AngleUpIcon)`
-  width: 12px;
-  height: 13px;
-  margin-left: 10px;
-  path{
-    fill:  ${({ selected, color }) => (selected ? 'rgba(255,83,80,0.8)' : color || '#8F9396')};
-  }
-`;
-export const DownIcon = styled(AngleDownIcon)`
-  width: 12px;
-  height: 13px;
-  margin-left: 10px;
-  path{
-    fill: ${({ selected, color }) => (selected ? 'rgba(255,83,80,0.8)' : color || '#8F9396')};
+  ${({ selected }) => (!selected ? '&:active' : '')}{
+    color: rgba(255,83,80,0.8);
+    background-color: #F5F5F5;
   }
 `;
 export const SortContainer = styled.div`
@@ -171,19 +149,12 @@ export const EraseFilterBtn = styled.button`
   outline: none;
   border: none;
   background-color: #FF5350;
-  display: flex;
   align-items: center;
   transition: all .3s ease;
   justify-content: center;
   cursor: pointer;
+  display: ${({ isActiveBtn }) => (isActiveBtn ? 'flex' : 'none')};
   &:hover{
     box-shadow: 4px 4px 4px rgba(255, 83, 80, 0.5);
   }  
-`;
-export const XIcon = styled(CloseIcon)`
-  width: 26px;
-  height: 26px;
-  path {
-    fill: #FFF;
-  }
 `;

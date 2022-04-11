@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Dropdown from './dropdown';
 import Sort from './sort';
 import {
@@ -161,9 +161,6 @@ function SearchNav() {
     });
     setActiveBtn(false);
   };
-  useEffect(() => {
-    console.log(filters);
-  }, [filters]);
   return (
     <NavContainer>
       <SearchBar>

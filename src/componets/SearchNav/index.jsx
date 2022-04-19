@@ -95,6 +95,7 @@ function SearchNav() {
     const filterData = Object.keys(data).map(
       (item) => data[item].filter((element) => (element.active ? element.name : '')),
     );
+    // eslint-disable-next-line no-console
     console.log(filterData);
   };
   return (

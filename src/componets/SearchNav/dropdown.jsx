@@ -15,31 +15,21 @@ function Dropdown({
   color,
   background,
   haveIcon,
-  setFilters,
-  filters,
-  setActiveBtn,
   setData,
 }) {
   const dropDownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setActive] = useState(false);
-  const localFilters = { ...filters };
   const localData = { ...options };
   const close = () => setIsOpen(false);
-  const addFilter = (name, value) => {
-    const lower = name.toLowerCase();
-    if (lower === 'ascending') localFilters[lower] = [value];
-    else localFilters[lower] = [...localFilters[lower], value];
-    setFilters({ ...localFilters });
-  };
-  const onOptionClicked = (name, value, index) => () => {
-    addFilter(name, value);
-    setActiveBtn(true);
+  const onOptionClicked = (name, index) => () => {
     localData[name][index].active = !localData[name][index].active;
-    setActive(localData[name].some((item) => item.active));
     setData({ ...localData });
     close();
   };
+  useEffect(() => {
+    setActive(localData[placeholder].some((item) => item.active));
+  }, [localData]);
   const toggling = () => setIsOpen(!isOpen);
   useEffect(() => {
     const pageClickEvent = (e) => {
@@ -71,7 +61,7 @@ function Dropdown({
           {
           options[placeholder].map((option, index) => (
             <ListItem
-              onClick={onOptionClicked(placeholder, option, index)}
+              onClick={onOptionClicked(placeholder, index)}
               key={Math.random()}
               selected={option.active}
             >
@@ -99,18 +89,14 @@ Dropdown.defaultProps = {
   color: '#8F9396',
   background: true,
   haveIcon: false,
-  setActiveBtn: () => {},
   setData: () => {},
 };
 Dropdown.propTypes = {
   placeholder: PropTypes.string.isRequired,
-  options: PropTypes.instanceOf(Array).isRequired,
+  options: PropTypes.objectOf(PropTypes.instanceOf(Array)).isRequired,
   color: PropTypes.string,
   background: PropTypes.bool,
   haveIcon: PropTypes.bool,
-  setFilters: PropTypes.func.isRequired,
-  filters: PropTypes.objectOf(PropTypes.instanceOf(Array)).isRequired,
-  setActiveBtn: PropTypes.func,
   setData: PropTypes.func,
 };
 export default Dropdown;

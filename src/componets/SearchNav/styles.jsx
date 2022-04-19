@@ -9,20 +9,20 @@ export const NavContainer = styled.div`
   align-items: center;
 `;
 export const SearchBar = styled.div`
-  width: 74%;
+  width: 80%;
   height: 60px;
   background: white;
   border-radius: 10px;
   border: 2px solid #EEEE;
-  min-width: 350px;
-  min-width: 350px;
   position: relative;
+  min-width: 350px;
+  min-width: 350px;
 `;
 export const SearchInput = styled.input`
   position: absolute;
   padding-left: 20px;
-  width: 101%;
-  height: 102%;
+  width: 100%;
+  height: 100%;
   border: none;
   outline: none;
   font-size: 16px;
@@ -53,7 +53,7 @@ export const SearchButton = styled.button`
   }
 `;
 export const FilterBar = styled.div`
-  width: 74%;
+  width: 80%;
   height: 40px;
   display: flex;
   justify-content: right;
@@ -118,7 +118,7 @@ export const ListItem = styled.li`
     background-color: #F5F5F5;
   }
 `;
-export const SortContainer = styled.div`
+export const FromToContainer = styled.div`
   width: 171px;
   height: 100%;
   display: flex;
@@ -127,7 +127,7 @@ export const SortContainer = styled.div`
   font-weight: 900;
   font-size: 14px ;
 `;
-export const SortInput = styled.input`
+export const FromToInput = styled.input`
   width: 52px;
   height: 30px;
   margin: 0 5px;

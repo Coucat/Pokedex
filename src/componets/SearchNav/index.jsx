@@ -81,9 +81,10 @@ function SearchNav() {
   };
   const [isActiveBtn, setActiveBtn] = useState(false);
   const [data, setData] = useState({ ...localData });
+  const [inputData, setInputData] = useState('');
   const clean = () => {
     setData({ ...localData });
-    setActiveBtn(!isActiveBtn);
+    setActiveBtn(false);
   };
   useEffect(() => {
     const allObjects = Object.keys(data).map(
@@ -93,21 +94,21 @@ function SearchNav() {
   }, [data]);
   const sendData = () => {
     const filterData = Object.keys(data).map(
-      (item) => data[item].filter((element) => (element.active ? element.name : '')),
+      (item) => data[item].filter((element) => element.active),
     );
-    // eslint-disable-next-line no-console
-    console.log(filterData);
+    const only = filterData.filter(Boolean);
+    console.log(inputData, only);
   };
   return (
     <NavContainer>
       <SearchBar>
-        <SearchInput placeholder="Search your Pokemon..." />
+        <SearchInput placeholder="Search your Pokemon..." onChange={(event) => setInputData(event.target.value)} />
         <SearchButton onClick={sendData}>
           <Icon name="pkicon" width="30px" height="30px" fill="#FFF" />
         </SearchButton>
       </SearchBar>
       <FilterBar>
-        <Dropdown placeholder="ascending" options={data} color="#000" background={false} setData={setData} />
+        <Dropdown placeholder="ascending" onlyOne options={data} color="#000" background={false} setData={setData} />
         <FromTo />
         <Dropdown placeholder="type" options={data} haveIcon setData={setData} />
         <Dropdown placeholder="weakness" options={data} haveIcon setData={setData} />

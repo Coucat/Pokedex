@@ -16,6 +16,7 @@ function Dropdown({
   background,
   haveIcon,
   setData,
+  onlyOne,
 }) {
   const dropDownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,18 @@ function Dropdown({
   const localData = { ...options };
   const close = () => setIsOpen(false);
   const onOptionClicked = (name, index) => () => {
-    localData[name][index].active = !localData[name][index].active;
+    if (onlyOne) {
+      localData[name].forEach((item) => {
+        console.log(item.name === localData[name][index].name);
+        if (item.name === localData[name][index].name) {
+          console.log('filter 1');
+          if (item.active === true) {
+            localData[name][index].active = false;
+            console.log('filter 2');
+          } else { localData[name][index].active = true; console.log('else filter 1'); }
+        } else if (item.active === false) { localData[name][index].active = false; console.log('else if 1'); }
+      });
+    } else localData[name][index].active = !localData[name][index].active;
     setData({ ...localData });
     close();
   };
@@ -90,6 +102,7 @@ Dropdown.defaultProps = {
   background: true,
   haveIcon: false,
   setData: () => {},
+  onlyOne: false,
 };
 Dropdown.propTypes = {
   placeholder: PropTypes.string.isRequired,
@@ -98,5 +111,6 @@ Dropdown.propTypes = {
   background: PropTypes.bool,
   haveIcon: PropTypes.bool,
   setData: PropTypes.func,
+  onlyOne: PropTypes.bool,
 };
 export default Dropdown;

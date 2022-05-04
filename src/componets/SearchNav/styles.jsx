@@ -7,6 +7,7 @@ export const NavContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 19px;
 `;
 export const SearchBar = styled.div`
   width: 80%;

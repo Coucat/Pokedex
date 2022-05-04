@@ -73,18 +73,17 @@ function SearchNav() {
       { name: 'Medium', active: false },
       { name: 'Large', active: false },
     ],
-    ascending: [
-      { name: 'Descending', active: false },
-      { name: 'A-Z', active: false },
-      { name: 'Z-A', active: false },
-    ],
   };
+  const [order, setOrder] = useState([
+    { name: 'Ascending', active: true },
+    { name: 'Descending', active: false },
+    { name: 'A-Z', active: false },
+    { name: 'Z-A', active: false },
+  ]);
   const [isActiveBtn, setActiveBtn] = useState(false);
   const [data, setData] = useState({ ...localData });
-  const [inputData, setInputData] = useState('');
   const clean = () => {
     setData({ ...localData });
-    setActiveBtn(false);
   };
   useEffect(() => {
     const allObjects = Object.keys(data).map(
@@ -96,25 +95,44 @@ function SearchNav() {
     const filterData = Object.keys(data).map(
       (item) => data[item].filter((element) => element.active),
     );
-    const only = filterData.filter(Boolean);
-    console.log(inputData, only);
+    // eslint-disable-next-line no-console
+    console.log(filterData);
   };
+  const updateData = (property, index) => {
+    const updatingData = ({ ...data });
+    if (property === 'ability') {
+      updatingData.ability = data.ability.map((item) => ({ name: item.name, active: false }));
+    }
+    updatingData[property][index].active = !data[property][index].active;
+    setData({ ...updatingData });
+  };
+  const updateOrder = (index) => {
+    const updatingData = order.map((item) => ({ name: item.name, active: false }));
+    updatingData[index].active = !order[index].active;
+    setOrder([...updatingData]);
+  };
+
+  const checkActive = (property) => data[property].some((item) => item.active);
+
+  const {
+    type, ability, height, weight, weakness,
+  } = data;
   return (
     <NavContainer>
       <SearchBar>
-        <SearchInput placeholder="Search your Pokemon..." onChange={(event) => setInputData(event.target.value)} />
+        <SearchInput placeholder="Search your Pokemon..." />
         <SearchButton onClick={sendData}>
           <Icon name="pkicon" width="30px" height="30px" fill="#FFF" />
         </SearchButton>
       </SearchBar>
       <FilterBar>
-        <Dropdown placeholder="ascending" onlyOne options={data} color="#000" background={false} setData={setData} />
+        <Dropdown placeholder={order.find((item) => item.active)?.name} onlyOne options={order} color="#000" background={false} setData={(index) => updateOrder(index)} />
         <FromTo />
-        <Dropdown placeholder="type" options={data} haveIcon setData={setData} />
-        <Dropdown placeholder="weakness" options={data} haveIcon setData={setData} />
-        <Dropdown placeholder="ability" options={data} setData={setData} />
-        <Dropdown placeholder="height" options={data} setData={setData} />
-        <Dropdown placeholder="weight" options={data} setData={setData} />
+        <Dropdown placeholder="type" options={type} haveIcon setData={(index) => updateData('type', index)} isActive={checkActive('type')} />
+        <Dropdown placeholder="weakness" options={weakness} haveIcon setData={(index) => updateData('weakness', index)} isActive={checkActive('weakness')} />
+        <Dropdown placeholder={ability.find((item) => item.active)?.name || 'ability'} options={ability} setData={(index) => updateData('ability', index)} isActive={checkActive('ability')} />
+        <Dropdown placeholder="height" options={height} setData={(index) => updateData('height', index)} isActive={checkActive('height')} />
+        <Dropdown placeholder="weight" options={weight} setData={(index) => updateData('weight', index)} isActive={checkActive('weight')} />
         <EraseFilterBtn onClick={clean} isActiveBtn={isActiveBtn}>
           <Icon name="crossicon" width="20px" height="20px" fill="#FFF" />
         </EraseFilterBtn>

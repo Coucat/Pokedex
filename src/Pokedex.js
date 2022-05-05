@@ -1,5 +1,5 @@
 import React from 'react';
-import Pokemons from './components/pokemonCard';
+import Pokemons from './componets/pokemonCard/index';
 import Header from './componets/Header/index';
 
 function App() {

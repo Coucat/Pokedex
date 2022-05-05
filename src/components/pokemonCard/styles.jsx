@@ -20,12 +20,20 @@ const typeBackground = {
   ground: '#ab9842',
   fighting: '#d56723',
 };
+export const Container = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 export const Grid = styled.div`
     width: 80%;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
     justify-content: center;
+    align-items: center;
 `;
 const updown = keyframes`
     0%{
@@ -53,6 +61,7 @@ export const CardContainer = styled.div`
   font-family: Roboto;
   font-style: normal;
   font-weight: 800;
+  cursor: pointer;
   line-height: 22px;
   box-shadow: 3px 3px 10px 2px rgba(0,0,0,0.2) ;
   &:hover{

@@ -20,7 +20,7 @@ function PokemonCard({
       <Name>{name}</Name>
       <TypeContainer>
         {
-         types.map((item) => <Type type={item.type.name}>{item.type.name}</Type>)
+         types.map((item) => <Type key={`${id} ${item.type.name}`} type={item.type.name}>{item.type.name}</Type>)
          }
       </TypeContainer>
     </CardContainer>

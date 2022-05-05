@@ -1,6 +1,6 @@
 import React from 'react';
-import Pokemons from './componets/pokemonCard/index';
-import Header from './componets/Header/index';
+import Pokemons from './componets/pokemonCard';
+import Header from './componets/Header';
 
 function App() {
   return (

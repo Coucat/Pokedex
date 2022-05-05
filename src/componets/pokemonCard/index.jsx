@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid } from './styles';
+import { ContainerGrid } from './styles';
 import PokemonCard from './pokemonCard';
 
 function Pokemons() {
@@ -60,15 +60,12 @@ function Pokemons() {
     },
   ];
   return (
-    <Container>
-
-      <Grid>
-        {
+    <ContainerGrid>
+      {
         // eslint-disable-next-line react/jsx-props-no-spreading
         data.map((pokemon) => <PokemonCard key={pokemon.id} {...pokemon} />)
       }
-      </Grid>
-    </Container>
+    </ContainerGrid>
   );
 }
 export default Pokemons;

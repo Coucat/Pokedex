@@ -20,20 +20,14 @@ const typeBackground = {
   ground: '#ab9842',
   fighting: '#d56723',
 };
-export const Container = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-export const Grid = styled.div`
-    width: 80%;
+export const ContainerGrid = styled.div`
+    width: 80%; 
     height: auto;
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
 `;
 const updown = keyframes`
     0%{

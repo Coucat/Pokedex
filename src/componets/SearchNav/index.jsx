@@ -84,6 +84,12 @@ function SearchNav() {
   const [data, setData] = useState({ ...localData });
   const clean = () => {
     setData({ ...localData });
+    setOrder([
+      { name: 'Ascending', active: true },
+      { name: 'Descending', active: false },
+      { name: 'A-Z', active: false },
+      { name: 'Z-A', active: false },
+    ]);
   };
   useEffect(() => {
     const allObjects = Object.keys(data).map(

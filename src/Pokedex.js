@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './componets/Header/index';
+import Header from './componets/Header';
 import SearchNav from './componets/SearchNav';
 
 function App() {

@@ -115,6 +115,8 @@ function SearchNav() {
   const updateOrder = (index) => {
     const updatingData = order.map((item) => ({ name: item.name, active: false }));
     updatingData[index].active = !order[index].active;
+    const somethingTrue = updatingData.some((item) => item.active);
+    if (!somethingTrue) updatingData[index].active = true;
     setOrder([...updatingData]);
   };
 

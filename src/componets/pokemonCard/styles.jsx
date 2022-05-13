@@ -28,6 +28,7 @@ export const ContainerGrid = styled.div`
     align-items: center;
     flex-wrap: wrap;
     margin: 20px auto;
+    user-select: none;
 `;
 const updown = keyframes`
     0%{

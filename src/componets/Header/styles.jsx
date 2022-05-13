@@ -16,6 +16,7 @@ export const HeaderBar = styled.div`
     min-width: 350px;
     padding: 0 20px ;
     margin: 20px 10% 10px 10%;
+    user-select: none;
 `;
 export const IconPokeball = styled(PokeballIcon)`
     width: 25px;

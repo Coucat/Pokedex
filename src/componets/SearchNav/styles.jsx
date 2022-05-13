@@ -1,23 +1,22 @@
 import styled from 'styled-components';
 
 export const NavContainer = styled.div`
-  width: 100%;
-  height: 120px;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 19px;
+  margin: auto;
+  min-width: 350px;
+  min-height: 120px;
 `;
 export const SearchBar = styled.div`
-  width: 80%;
+  width: 100%;
   height: 60px;
   background: white;
   border-radius: 10px;
   border: 2px solid #EEEE;
   position: relative;
-  min-width: 350px;
-  min-width: 350px;
 `;
 export const SearchInput = styled.input`
   position: absolute;
@@ -54,18 +53,21 @@ export const SearchButton = styled.button`
   }
 `;
 export const FilterBar = styled.div`
-  width: 80%;
-  height: 40px;
+  width: 100%;
+  min-height: 40px;
   display: flex;
   justify-content: right;
   align-items: center;
-  margin-top: 15px;
+  margin: 10px auto;
+  flex-wrap: wrap-reverse;
+  user-select: none;
 `;
 
 export const DropDownContainer = styled.div`
   width: auto;
   height: 36px; 
   cursor: pointer;
+  margin-top: 5px;
 `;
 
 export const DropDownHeader = styled.div`
@@ -87,15 +89,11 @@ export const DropDownListContainer = styled.div`
   position: absolute;
   z-index: 100;
   width: 100px;
-  max-height: 150px;
-  overflow: auto;
+  max-height: 218px;
   margin-top: 2px;
   margin-left: 5px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.19);
   border: 1px solid #FFF;
-  &::-webkit-scrollbar{
-    width: 0;
-  }
 `;
 
 export const DropDownList = styled.ul`
@@ -104,6 +102,19 @@ export const DropDownList = styled.ul`
   color: #8F9396;
   font-size: 14px;
   font-weight: 500;
+  overflow-y: auto;
+  max-height: 225px;
+  &::-webkit-scrollbar{
+    width: 5px;
+}
+&::-webkit-scrollbar-track{
+    background-color: none;
+}
+&::-webkit-scrollbar-thumb{
+    background-color: #C4C4C4; 
+    border-radius: 10px;
+    height: 104px;
+}
 `;
 
 export const ListItem = styled.li`
@@ -126,7 +137,8 @@ export const FromToContainer = styled.div`
   justify-content: left;
   align-items: center;
   font-weight: 900;
-  font-size: 14px ;
+  font-size: 14px;
+  margin-top: 5px;
 `;
 export const FromToInput = styled.input`
   width: 52px;
@@ -154,6 +166,7 @@ export const EraseFilterBtn = styled.button`
   transition: all .3s ease;
   justify-content: center;
   cursor: pointer;
+  margin: 5px 10px 0 0;
   display: ${({ isActiveBtn }) => (isActiveBtn ? 'flex' : 'none')};
   &:hover{
     box-shadow: 4px 4px 4px rgba(255, 83, 80, 0.5);

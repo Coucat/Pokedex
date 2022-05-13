@@ -21,17 +21,19 @@ function Dropdown({
 }) {
   const dropDownRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const close = () => setIsOpen(false);
   const onOptionClicked = (index) => () => {
     setData(index);
-    close();
   };
   const toggling = () => setIsOpen(!isOpen);
   useEffect(() => {
     const pageClickEvent = (e) => {
-      if (dropDownRef.current !== null && !dropDownRef.current.contains(e.target)) {
-        setIsOpen(!isOpen);
-      }
+      const {
+        bottom,
+        height,
+        left,
+        right,
+      } = e.target.getBoundingClientRect();
+      if (bottom && height && left && right) setIsOpen(false);
     };
     if (isOpen) window.addEventListener('click', pageClickEvent);
     return () => {

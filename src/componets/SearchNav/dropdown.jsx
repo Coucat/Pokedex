@@ -49,9 +49,7 @@ function Dropdown({
         selected={isActive}
       >
         {placeholder}
-        {isOpen
-          ? <Icon name="UpIcon" fill={color} width="15px" height="15px" margin="0 0 0 5px" selected={isActive} />
-          : <Icon name="DownIcon" fill={color} width="15px" height="15px" margin="0 0  0 5px" selected={isActive} />}
+        <Icon name={isOpen ? 'UpIcon' : 'DownIcon'} fill={color} width="15px" height="15px" margin="0 0 0 5px" selected={isActive} />
       </DropDownHeader>
       {isOpen && (
         <DropDownListContainer ref={dropDownRef}>
@@ -63,7 +61,7 @@ function Dropdown({
                   key={Math.random()}
                   selected={option.active}
                 >
-                  {haveIcon ? (
+                  {haveIcon && (
                     <Icon
                       name={option.name}
                       width="15px"
@@ -72,7 +70,7 @@ function Dropdown({
                       selected={option.active}
                       fill={color}
                     />
-                  ) : ''}
+                  )}
                   {option.name}
                 </ListItem>
               ))

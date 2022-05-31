@@ -1,16 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 import { ReactComponent as PokeballIcon } from '../../assets/pokeball.svg';
 
-export const HeaderContainer = styled.div`
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-`;
 export const HeaderBar = styled.div`
-    width: 76%;
+    width: 80%;
     height: 70px;
     background: white;
     border-radius: 10px;
@@ -23,6 +15,8 @@ export const HeaderBar = styled.div`
     border: 2px solid #EEEE;
     min-width: 350px;
     padding: 0 20px ;
+    margin: 20px 10% 10px 10%;
+    user-select: none;
 `;
 export const IconPokeball = styled(PokeballIcon)`
     width: 25px;

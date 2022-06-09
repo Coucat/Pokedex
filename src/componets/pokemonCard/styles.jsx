@@ -76,11 +76,13 @@ export const Image = styled.img`
 `;
 export const Number = styled.span` 
     font-size: 15px;
+    font-family: 'Roboto Mono', monospace;
     color: #8F9396;
     margin-top: 10px;
 `;
 export const Name = styled.span`
-    font-weight: 900;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 700;
     font-size: 19px;
     color: #000;
 `;
@@ -94,6 +96,7 @@ export const TypeContainer = styled.div`
 export const Type = styled.div`
     width: auto;
     height: 25px;
+    font-family: 'Quicksand', sans-serif;
     margin: 0 5px;
     ${({ type }) => (typeBackground[type] ? `background: ${typeBackground[type]};` : 'background: white;')}
     padding: 2px 5px;

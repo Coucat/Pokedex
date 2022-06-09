@@ -46,8 +46,8 @@ export const HeaderSection = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 900;
+    font-family: 'Arimo', sans-serif;
+    font-weight: bold;
     border-radius: 5px;
     padding: 0 10px ;
     ${({ isActive }) => (isActive ? '' : '&:hover')}{

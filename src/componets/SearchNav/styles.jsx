@@ -26,7 +26,8 @@ export const SearchInput = styled.input`
   border: none;
   outline: none;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 600;
+  font-family: 'Public Sans', sans-serif;
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
   &:focus {
@@ -72,9 +73,10 @@ export const DropDownContainer = styled.div`
 
 export const DropDownHeader = styled.div`
   padding: 10px;
+  font-family: 'Arimo', sans-serif;
   background-color: ${({ background }) => (!background ? '' : '#FFF')};
   box-shadow: ${({ background }) => (!background ? '' : '0 2px 3px rgba(0, 0, 0, 0.15)')};
-  font-weight: 900;
+  font-weight: 700;
   font-size: 14px;
   color: ${({ selected, color }) => (selected ? 'rgba(255,83,80,0.8)' : color || '#8F9396')};
   border-radius: 8px;
@@ -92,7 +94,7 @@ export const DropDownListContainer = styled.div`
   max-height: 218px;
   margin-top: 2px;
   margin-left: 5px;
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.19);
+  box-shadow: 4px 6px 4px rgba(0, 0, 0, 0.19);
   border: 1px solid #FFF;
 `;
 
@@ -102,6 +104,7 @@ export const DropDownList = styled.ul`
   color: #8F9396;
   font-size: 14px;
   font-weight: 500;
+  font-family: 'Arimo', sans-serif;
   overflow-y: auto;
   max-height: 225px;
   &::-webkit-scrollbar{
@@ -136,7 +139,7 @@ export const FromToContainer = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
-  font-weight: 900;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   font-size: 14px;
   margin-top: 5px;
 `;
